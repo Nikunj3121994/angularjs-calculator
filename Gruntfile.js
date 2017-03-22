@@ -436,7 +436,7 @@ module.exports = function (grunt) {
       },
       pages: {
         options: {
-          remote: 'git@github.com:davidsmith2/angularjs-calculator.git',
+          remote: 'https://github.com/davidsmith2/angularjs-calculator.git',
           branch: 'gh-pages'
         }
       },
