@@ -62,9 +62,9 @@
                     </thead>
                     <tbody>
                     <tr ng-repeat="calculation in calculations | orderBy: '-date'">
-                        <td ng-bind="calculation.date"></td>
-                        <td ng-bind="calculation.input"></td>
-                        <td ng-bind="calculation.output"></td>
+                        <td>{{calculation.date | date: 'mediumTime'}}</td>
+                        <td>{{calculation.input}}</td>
+                        <td>{{calculation.output}}</td>
                     </tr>
                     </tbody>
                 </table>
