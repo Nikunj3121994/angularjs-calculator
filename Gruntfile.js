@@ -450,6 +450,10 @@ module.exports = function (grunt) {
 
   });
 
+  grunt.registerTask('deploy', [
+    'build',
+    'buildcontrol:pages'
+  ]);
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -504,4 +508,5 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
 };
