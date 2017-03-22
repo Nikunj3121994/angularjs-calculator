@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    Enter a calculation
+                </div>
+            </div>
+            <div class="panel-body">
+                <form name="form" ng-submit="calculate(); form.$setPristine()" novalidate>
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="input">E.g. <code>2+3/2</code>:</label>
+                            <div>
+                                <input
+                                    class="form-control"
+                                    id="input"
+                                    name="input"
+                                    ng-model="input"
+                                    ng-pattern="re"
+                                    placeholder="0"
+                                    required
+                                    type="text"
+                                >
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-8" role="alert">
+                                <p class="text-warning" ng-hide="form.$pristine" ng-show="form.input.$invalid">
+                                    You may only enter digits (0-9) or operators (+, -, *, /).
+                                </p>
+                            </div>
+                            <div class="col-sm-4">
+                                <input
+                                    class="btn btn-primary"
+                                    ng-disabled="form.$pristine"
+                                    type="submit"
+                                    value="Calculate!"
+                            >
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    Calculations
+                </div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Input</th>
+                        <th>Output</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="calculation in calculations | orderBy: '-date'">
+                        <td ng-bind="calculation.date"></td>
+                        <td ng-bind="calculation.input"></td>
+                        <td ng-bind="calculation.output"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
